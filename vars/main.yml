@@ -19,3 +19,4 @@ _pgbackrest_postgresql_conf_path:
   debian:
     9: "/etc/postgresql/9.6/main/postgresql.conf"
     10: "/etc/postgresql/11/main/postgresql.conf"
+    11: "/etc/postgresql/13/main/postgresql.conf"
