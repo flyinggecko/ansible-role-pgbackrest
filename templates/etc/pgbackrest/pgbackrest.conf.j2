@@ -1,13 +1,10 @@
-{% for (stanza_name, cluster) in pgbackrest_conf_cluster_stanzas.items() %}
+{% for (stanza_name, stanza) in pgbackrest_conf_cluster_stanzas.items() %}
 [{{ stanza_name }}]
-{% if 'pg_path' in cluster %}
-pg1-path={{ cluster.pg_path }}
-{% endif %}
-{% if ('db_path' in cluster) and (not 'pg_path' in cluster) %}
-db-path={{ cluster.db_path }}
-{% endif %}
+{% for opt in stanza %}
+{{ opt }}={{ stanza[opt] }}
 {% endfor %}
-
+{% endfor %}
 [global]
-repo1-path={{ pgbackrest_repo_path }}
-repo1-retention-full={{ pgbackrest_repo_retention_full }}
+{% for (key, option) in pgbackrest_conf_global.items() %}
+{{ key }}={{ option }}
+{% endfor %}

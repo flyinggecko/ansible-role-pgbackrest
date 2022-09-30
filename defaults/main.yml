@@ -28,6 +28,10 @@ pgbackrest_conf_mode: "0644"
 # pgbackrest conf file, you can set that here.
 pgbackrest_conf_dir_mode: "0755"
 
+# pgbackrest global configuration go in here.
+# Every line will go into the [global]-section of the configuration file.
+pgbackrest_conf_global: {}
+
 # pgbackrest stanza configs go in here. The key for each entry is a stanza
 # name, and the contents will be added as key=value entries in the actual
 # config file under the [stanza_name] section(s)
